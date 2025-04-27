@@ -1,18 +1,31 @@
+<!DOCTYPE html>
+<!--
+  website.html
+  Main page for Rhino's door import and marketing website
+  Contains the form for customer information and door selection
+-->
 <html>
     <head>
         <title>Rhino's import and marketing of doors</title>
+        <!-- Load Google Charts library -->
         <script src = "https://www.gstatic.com/charts/loader.js"></script>
+        <!-- Load business logic and data access scripts -->
         <script src = "businessLogic.js"></script>
-		<script src = "dataAccess.js"></script>
+        <script src = "dataAccess.js"></script>
+        <!-- Load CSS styles -->
         <link rel = "stylesheet" href = "css.css">
     </head>
     <body>
+        <!-- Header section with company name and logo -->
         <div id = "header">
             <h1>Welcome to Rhino's import and marketing of doors</h1>
-            <img id = "rhino" src = "./images/rhino.png">
+            <img id = "rhino" src = "rhino.png" alt="Rhino Logo">
         </div>
+        
+        <!-- Customer information form section -->
         <h3>Please fill in your info</h3>
         <form>
+            <!-- Customer personal information fields -->
             <table>
                 <tr>
                     <td>
@@ -22,7 +35,6 @@
                         Last name: <input type = "text" id = "lname">
                     </td>
                     <td>
-					
                         Cell number: <input type = "text"  id = "cell">
                     </td>
                     <td>
@@ -31,9 +43,12 @@
                 </tr>
             </table>
 
+            <!-- Door selection section -->
             </br><h3>Choose which models do you want</h3></br>
 
+            <!-- Door models display and selection options -->
             <table>
+                <!-- Door type headers -->
                 <tr>
                     <td>
                         Duo-panel
@@ -49,21 +64,23 @@
                     </td>
                 </tr>
 
+                <!-- Door images -->
                 <tr>
                     <td>
-                        <img id = "duo-panel-door" src = "./images/duo-panel-white.png">
+                        <img id = "duo-panel-door" src = "duo-panel-white.png" alt="Duo-panel door">
                     </td>
                     <td>
-                        <img id = "long-lines-door" src = "./images/long-lines-white.png">
+                        <img id = "long-lines-door" src = "long-lines-white.png" alt="Longitudinal lines door">
                     </td>
                     <td>
-                        <img id = "width-lines-door" src = "./images/width-lines-white.png">
+                        <img id = "width-lines-door" src = "width-lines-white.png" alt="Width lines door">
                     </td>
                     <td>
-                        <img id = "smooth-door" src = "./images/smooth-white.png">
+                        <img id = "smooth-door" src = "smooth-white.png" alt="Smooth door">
                     </td>
                 </tr>
 
+                <!-- Door type selection options -->
                 <tr>
                     <td>
                         </br>Type: <select id = "type-duo-panel">
@@ -94,6 +111,7 @@
                     </td>
                 </tr>
 
+                <!-- Door width selection options -->
                 <tr>
                     <td>
                         Width: <select id = "width-duo-panel">
@@ -140,6 +158,7 @@
                     </td>
                 </tr>
 
+                <!-- Door color selection options with image change handlers -->
                 <tr>
                     <td>
                         Color: <select id = "color-duo-panel" onchange = "changeImageDouPanel()">
@@ -170,6 +189,7 @@
                     </td>
                 </tr>
 
+                <!-- Door quantity selection fields -->
                 <tr>
                     <td>
                         Quantity: <input type = "number" id = "quantity-duo-panel" min = "0" max = "10" value="0">
@@ -185,12 +205,21 @@
                     </td>
                 </tr>
             </table>
+            
+            <!-- Sales chart display area -->
             <div id="myChart"></div>
+            
+            <!-- Load business logic script again (redundant) -->
             <script src = "businessLogic.js"></script>
-            <b>To leave feedback please press here:</b> <a href="googleForm.html"><img id = "rhino" src = "./images/rhino.png"></a>
+            
+            <!-- Feedback form link -->
+            <b>To leave feedback please press here:</b> <a href="googleForm.html"><img id = "rhino" src = "rhino.png" alt="Rhino Logo"></a>
 
+            <!-- Questions and concerns text area -->
             </br></br></br><h3>If you have any questions or concerns, please write it down here</h3></br>
             <textarea id = "text" rows = "10" cols = "50"></textarea></br></br>
+            
+            <!-- Form submission and reset buttons -->
             <input type = "button" value = "send order" onclick="GetClientAndOrderInfo()">
             <input id = "reset" type = "reset" value = "reset order">
         </form>
